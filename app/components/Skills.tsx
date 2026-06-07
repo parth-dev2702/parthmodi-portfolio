@@ -53,6 +53,47 @@ const skills = {
   },
 };
 
+const colorMap: Record<
+  string,
+  { badge: string; text: string; shadow: string; border: string; iconBg: string }
+> = {
+  Backend: {
+    badge: "bg-indigo-500/5 hover:bg-indigo-500/10 border-indigo-500/10 hover:border-indigo-500/30 text-indigo-300",
+    text: "group-hover:text-indigo-300",
+    shadow: "hover:shadow-[0_0_30px_rgba(99,102,241,0.08)]",
+    border: "group-hover:border-indigo-500/20",
+    iconBg: "group-hover:bg-indigo-500/10 group-hover:text-indigo-300",
+  },
+  Frontend: {
+    badge: "bg-purple-500/5 hover:bg-purple-500/10 border-purple-500/10 hover:border-purple-500/30 text-purple-300",
+    text: "group-hover:text-purple-300",
+    shadow: "hover:shadow-[0_0_30px_rgba(168,85,247,0.08)]",
+    border: "group-hover:border-purple-500/20",
+    iconBg: "group-hover:bg-purple-500/10 group-hover:text-purple-300",
+  },
+  Cloud: {
+    badge: "bg-pink-500/5 hover:bg-pink-500/10 border-pink-500/10 hover:border-pink-500/30 text-pink-300",
+    text: "group-hover:text-pink-300",
+    shadow: "hover:shadow-[0_0_30px_rgba(236,72,153,0.08)]",
+    border: "group-hover:border-pink-500/20",
+    iconBg: "group-hover:bg-pink-500/10 group-hover:text-pink-300",
+  },
+  DevOps: {
+    badge: "bg-emerald-500/5 hover:bg-emerald-500/10 border-emerald-500/10 hover:border-emerald-500/30 text-emerald-300",
+    text: "group-hover:text-emerald-300",
+    shadow: "hover:shadow-[0_0_30px_rgba(16,185,129,0.08)]",
+    border: "group-hover:border-emerald-500/20",
+    iconBg: "group-hover:bg-emerald-500/10 group-hover:text-emerald-300",
+  },
+  "Mobile & Extensions": {
+    badge: "bg-amber-500/5 hover:bg-amber-500/10 border-amber-500/10 hover:border-amber-500/30 text-amber-300",
+    text: "group-hover:text-amber-300",
+    shadow: "hover:shadow-[0_0_30px_rgba(245,158,11,0.08)]",
+    border: "group-hover:border-amber-500/20",
+    iconBg: "group-hover:bg-amber-500/10 group-hover:text-amber-300",
+  },
+};
+
 export default function Skills() {
   return (
     <section id="skills" className="py-28 relative overflow-hidden">
@@ -71,42 +112,45 @@ export default function Skills() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {Object.entries(skills).map(([title, { items, icon, description }]) => (
-            <div
-              key={title}
-              className={`glass-panel glass-panel-hover glow-card p-8 rounded-3xl transition-all duration-300 group flex flex-col justify-between ${
-                title === "Backend" ? "md:col-span-2" : ""
-              }`}
-            >
-              <div>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 rounded-2xl bg-white/5 border border-white/10 group-hover:border-white/20 transition-colors">
-                    {icon}
+          {Object.entries(skills).map(([title, { items, icon, description }]) => {
+            const colors = colorMap[title] || colorMap.Backend;
+            return (
+              <div
+                key={title}
+                className={`glass-panel glass-panel-hover glow-card p-8 rounded-3xl transition-all duration-300 group flex flex-col justify-between ${colors.shadow} ${colors.border} ${
+                  title === "Backend" ? "md:col-span-2" : ""
+                }`}
+              >
+                <div>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className={`p-3 rounded-2xl bg-white/5 border border-white/10 transition-all duration-300 ${colors.iconBg}`}>
+                      {icon}
+                    </div>
+                    <div>
+                      <h3 className={`text-2xl font-bold text-white transition-colors duration-300 ${colors.text}`}>
+                        {title}
+                      </h3>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-white group-hover:text-indigo-300 transition-colors">
-                      {title}
-                    </h3>
-                  </div>
+                  
+                  <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                    {description}
+                  </p>
                 </div>
-                
-                <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-                  {description}
-                </p>
-              </div>
 
-              <div className="flex flex-wrap gap-2.5">
-                {items.map((item) => (
-                  <span
-                    key={item}
-                    className="px-4 py-1.5 text-xs font-semibold rounded-xl bg-white/5 border border-white/5 text-slate-300 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200 cursor-default"
-                  >
-                    {item}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-2.5">
+                  {items.map((item) => (
+                    <span
+                      key={item}
+                      className={`px-4 py-1.5 text-xs font-semibold rounded-xl border transition-all duration-200 cursor-default ${colors.badge}`}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

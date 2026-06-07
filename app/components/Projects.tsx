@@ -52,29 +52,10 @@ export default function Projects() {
           {projects.map((project) => (
             <div
               key={project.title}
-              className="glass-panel glass-panel-hover glow-card p-8 rounded-3xl transition-all duration-300 group flex flex-col justify-between transform hover:-translate-y-2"
+              className="glass-panel glass-panel-hover glow-card p-8 rounded-3xl transition-all duration-300 group flex flex-col justify-between transform hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(99,102,241,0.08)] hover:border-indigo-500/20"
             >
               <div>
-                {/* Project Header Icons */}
-                <div className="flex justify-between items-center mb-6">
-                  <div className="p-3 rounded-2xl bg-white/5 border border-white/10 group-hover:border-indigo-500/30 text-indigo-400 group-hover:text-indigo-300 transition-colors">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                    </svg>
-                  </div>
-                  
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 text-slate-400 hover:text-white rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all"
-                    aria-label="View Source Code"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                </div>
+
 
                 <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-indigo-300 transition-colors">
                   {project.title}

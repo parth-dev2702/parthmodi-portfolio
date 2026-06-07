@@ -79,13 +79,13 @@ export default function Experience() {
               return (
                 <div
                   key={index}
-                  className={`relative flex flex-col md:flex-row items-stretch ${
+                  className={`relative flex flex-col md:flex-row items-stretch group/item ${
                     isEven ? "md:flex-row-reverse" : ""
                   }`}
                 >
                   {/* Timeline bullet marker */}
-                  <div className='absolute top-0 left-0 md:left-1/2 w-8 h-8 rounded-full bg-[#030014] border-4 border-indigo-500 -translate-x-[17px] md:-translate-x-4 flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.5)] z-20'>
-                    <div className='w-2.5 h-2.5 rounded-full bg-purple-400 animate-pulse' />
+                  <div className="absolute top-0 left-0 md:left-1/2 w-8 h-8 rounded-full bg-[#030014] border-2 border-cyan-400/80 -translate-x-[17px] md:-translate-x-4 flex items-center justify-center shadow-[0_0_15px_rgba(34,211,238,0.3)] group-hover/item:shadow-[0_0_25px_rgba(34,211,238,0.7)] group-hover/item:border-cyan-300 transition-all duration-300 z-20">
+                    <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 group-hover/item:scale-125 transition-transform" />
                   </div>
 
                   {/* Left Column Spacer / Timeline Side */}

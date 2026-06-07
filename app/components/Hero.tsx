@@ -5,9 +5,9 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
       {/* Immersive background decoration */}
-      <div className="absolute inset-0 grid-bg opacity-40 z-0 pointer-events-none" />
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-500/10 rounded-full blur-[100px] animate-pulse-slow pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px] animate-pulse-slow pointer-events-none" />
+      <div className="absolute inset-0 grid-bg grid-mask opacity-40 z-0 pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-500/10 rounded-full blur-[100px] animate-blob-1 pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px] animate-blob-2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10 w-full py-12">
         {/* Left column - Content */}
