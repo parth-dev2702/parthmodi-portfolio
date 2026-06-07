@@ -1,0 +1,7 @@
+/node_modules
+/package-lock.json
+/.next
+package-lock.json
+.env
+*.pem
+CLAUDE.*
